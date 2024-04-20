@@ -5,8 +5,11 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
+import com.ifs21048.lostandfound.R
 import com.ifs21048.lostandfound.data.model.DelcomLostandFound
 import com.ifs21048.lostandfound.data.remote.MyResult
 import com.ifs21048.lostandfound.databinding.ActivityLostandFoundManageBinding
@@ -30,6 +33,26 @@ class LostandFoundManageActivity : AppCompatActivity() {
 
     private fun setupView() {
         showLoading(false)
+
+        binding.buttonLostandFound.setOnClickListener {
+            // Membuat intent untuk memilih gambar dari galeri
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.type = "image/*"
+
+            // Memulai activity untuk memilih gambar dari galeri
+            launcher.launch(intent)
+        }
+    }
+
+    private val launcher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val selectedImageUri = result.data?.data
+            // Lakukan sesuatu dengan URI gambar yang dipilih
+            // Misalnya, tampilkan gambar tersebut di ImageView
+            binding.ivImageSelected.setImageURI(selectedImageUri)
+        }
     }
 
     private fun setupAtion() {
@@ -66,7 +89,7 @@ class LostandFoundManageActivity : AppCompatActivity() {
             btnLostandFoundManageSave.setOnClickListener {
                 val title = etLostandFoundManageTitle.text.toString()
                 val description = etLostandFoundManageDesc.text.toString()
-                val status = etLostandFoundManageStatus.text.toString()
+                val status = etLostandFoundManageStatus.selectedItem.toString()
 
                 if (title.isEmpty() || description.isEmpty()) {
                     AlertDialog.Builder(this@LostandFoundManageActivity).apply {
@@ -111,15 +134,19 @@ class LostandFoundManageActivity : AppCompatActivity() {
 
     private fun manageEditLostandFound(lostandFound: DelcomLostandFound) {
         binding.apply {
-            appbarTodoManage.title = "Ubah Todo"
+            appbarTodoManage.title = "Ubah Barang"
+
             etLostandFoundManageTitle.setText(lostandFound.title)
             etLostandFoundManageDesc.setText(lostandFound.description)
-            etLostandFoundManageStatus.setText(lostandFound.status)
+
+            val statusArray = resources.getStringArray(R.array.status)
+            val statusIndex = statusArray.indexOf(lostandFound.status)
+            etLostandFoundManageStatus.setSelection(statusIndex)
 
             btnLostandFoundManageSave.setOnClickListener {
                 val title = etLostandFoundManageTitle.text.toString()
                 val description = etLostandFoundManageDesc.text.toString()
-                val status = etLostandFoundManageStatus.text.toString()
+                val status = etLostandFoundManageStatus.selectedItem.toString()
 
                 if (title.isEmpty() || description.isEmpty()) {
                     AlertDialog.Builder(this@LostandFoundManageActivity).apply {
@@ -131,7 +158,9 @@ class LostandFoundManageActivity : AppCompatActivity() {
                     }
                     return@setOnClickListener
                 }
-                observePutLostandFound(lostandFound.id, title, description, status, lostandFound.isCompleted)
+
+                    observePutLostandFound(lostandFound.id, title, description, status, lostandFound.isCompleted)
+
             }
         }
     }

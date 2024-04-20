@@ -49,14 +49,14 @@ interface IApiService {
         @Field("title") title: String,
         @Field("description") description: String,
         @Field("status") status: String,
-        @Field("is_completed") isCompleted: Int
+        @Field("is_completed") isCompleted: Int,
     ): DelcomResponse
 
     @GET("lost-founds")
     suspend fun getLostandFounds(
         @Query("is_completed") isCompleted: Int?,
-//        @Query("is_me") isMe: Int?,
-//        @Query("status") status: String?,
+        @Query("is_me") isMe: Int?,
+        @Query("status") status: String?,
     ): DelcomLostandFoundsResponse
 
     @GET("lost-founds/{id}")

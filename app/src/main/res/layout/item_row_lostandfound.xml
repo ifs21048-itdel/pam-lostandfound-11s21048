@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="6dp">
@@ -11,36 +12,60 @@
         android:layout_height="wrap_content">
 
         <CheckBox
-            android:id="@+id/cbItemTodoIsFinished"
+            android:id="@+id/cbItemLostandFoundIsFinished"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:scaleX="1"
             android:scaleY="1"
             android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivItemLostandFoundDetail"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/tvItemTodoTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:id="@+id/tvItemLostandFoundTitle"
+            style="@style/TextBold.H6"
+            android:layout_width="339dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="268dp"
             android:text="Judul Barang"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/ivItemTodoDetail"
-            app:layout_constraintStart_toEndOf="@+id/cbItemTodoIsFinished"
+            app:layout_constraintEnd_toStartOf="@+id/ivItemLostandFoundDetail"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.238" />
+
+        <TextView
+            android:id="@+id/tvItemLostandFoundDesc"
+            style="@style/Text.P7"
+            android:layout_width="352dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="240dp"
+            android:text="Deskripsi barang"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/ivItemLostandFoundDetail"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/ivItemTodoDetail"
+            android:id="@+id/ivItemLostandFoundDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            app:tint="#AAAAAA"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_open_in_new_24" />
+            app:layout_constraintVertical_bias="0.047"
+            app:srcCompat="@drawable/baseline_info_outline_24" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

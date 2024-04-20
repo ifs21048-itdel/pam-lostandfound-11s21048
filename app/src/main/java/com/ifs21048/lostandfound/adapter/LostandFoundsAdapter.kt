@@ -1,5 +1,9 @@
 package com.ifs21048.lostandfound.adapter
 
+import android.graphics.Color
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -31,18 +35,18 @@ class LostandFoundsAdapter :
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val data = originalData[originalData.indexOf(getItem(position))]
 
-        holder.binding.cbItemTodoIsFinished.setOnCheckedChangeListener(null)
-        holder.binding.cbItemTodoIsFinished.setOnLongClickListener(null)
+        holder.binding.cbItemLostandFoundIsFinished.setOnCheckedChangeListener(null)
+        holder.binding.cbItemLostandFoundIsFinished.setOnLongClickListener(null)
 
         holder.bind(data)
 
-        holder.binding.cbItemTodoIsFinished.setOnCheckedChangeListener { _, isChecked ->
+        holder.binding.cbItemLostandFoundIsFinished.setOnCheckedChangeListener { _, isChecked ->
             data.isCompleted = if (isChecked) 1 else 0
             holder.bind(data)
             onItemClickCallback.onCheckedChangeListener(data, isChecked)
         }
 
-        holder.binding.ivItemTodoDetail.setOnClickListener {
+        holder.binding.ivItemLostandFoundDetail.setOnClickListener {
             onItemClickCallback.onClickDetailListener(data.id)
         }
     }
@@ -52,9 +56,22 @@ class LostandFoundsAdapter :
 
         fun bind(data: LostFoundsItemResponse) {
             binding.apply {
-                tvItemTodoTitle.text = data.title
-                cbItemTodoIsFinished.isChecked = data.isCompleted == 1
+                tvItemLostandFoundTitle.text = data.title
+                cbItemLostandFoundIsFinished.isChecked = data.isCompleted == 1
+                val status = if (data.status.equals("found", ignoreCase = true)) {
+                    highlight("Found", Color.BLUE)
+                }else {
+                    highlight("Lost", Color.RED)
+                }
+                tvItemLostandFoundDesc.text = status
             }
+        }
+
+        private fun highlight(text:String, color:Int): SpannableString {
+            val spannableString = SpannableString(text)
+            val foregroundColorSpan = ForegroundColorSpan(color)
+            spannableString.setSpan(foregroundColorSpan, 0, text.length, Spannable.SPAN_EXCLUSIVE_INCLUSIVE)
+            return spannableString
         }
     }
 
@@ -76,8 +93,8 @@ class LostandFoundsAdapter :
     }
 
     interface OnItemClickCallback {
-        fun onCheckedChangeListener(todo: LostFoundsItemResponse, isChecked: Boolean)
-        fun onClickDetailListener(todoId: Int)
+        fun onCheckedChangeListener(lostandfound: LostFoundsItemResponse, isChecked: Boolean)
+        fun onClickDetailListener(lostandfoundId: Int)
     }
 
     companion object {

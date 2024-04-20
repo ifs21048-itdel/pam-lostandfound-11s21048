@@ -71,14 +71,14 @@ class LostandFoundRepository private constructor(
     }
 
     fun getLostandFounds(
-        is_completed: Int?,
-//        is_me: Int?,
-//        status: String,
+        isCompleted: Int?,
+        isMe: Int?,
+        status : String?,
     ) = flow {
         emit(MyResult.Loading)
         try {
             //get success message
-            emit(MyResult.Success(apiService.getLostandFounds(is_completed)))
+            emit(MyResult.Success(apiService.getLostandFounds(isCompleted, isMe, status)))
         } catch (e: HttpException) {
             //get error message
             val jsonInString = e.response()?.errorBody()?.string()
@@ -93,12 +93,16 @@ class LostandFoundRepository private constructor(
     }
 
     fun getLostandFound(
-        lostandfoundId: Int,
+        lostfoundId: Int,
     ) = flow {
         emit(MyResult.Loading)
         try {
             //get success message
-            emit(MyResult.Success(apiService.getLostandFound(lostandfoundId)))
+            emit(
+                MyResult.Success(
+                    apiService.getLostandFound(lostfoundId)
+                )
+            )
         } catch (e: HttpException) {
             //get error message
             val jsonInString = e.response()?.errorBody()?.string()

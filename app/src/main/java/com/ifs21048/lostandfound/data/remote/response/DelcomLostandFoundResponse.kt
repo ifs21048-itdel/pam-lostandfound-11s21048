@@ -32,7 +32,7 @@ data class AuthorLostandFoundResponse(
 data class LostandFoundResponse(
 
 	@field:SerializedName("cover")
-	val cover: Any,
+	val cover: String?,
 
 	@field:SerializedName("updated_at")
 	val updatedAt: String,

@@ -41,8 +41,11 @@
                 android:id="@+id/tvLostandFoundManageLabelTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:text="Judul"
+                style="@style/TextBold.H6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.002"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,30 +55,33 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Deskripsi"
+                style="@style/TextBold.H6"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etLostandFoundManageTitle" />
 
             <TextView
                 android:id="@+id/tvLostandFoundManageLabelStatus"
+                style="@style/TextBold.H6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Status"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.002"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etLostandFoundManageDesc"
-                app:layout_constraintVertical_bias="0.088" />
+                app:layout_constraintTop_toBottomOf="@+id/etLostandFoundManageDesc" />
 
             <EditText
                 android:id="@+id/etLostandFoundManageTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@android:drawable/editbox_background"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_corner"
                 android:ems="10"
                 android:inputType="text"
                 android:padding="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvLostandFoundManageLabelTitle"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
@@ -84,41 +90,57 @@
                 android:id="@+id/etLostandFoundManageDesc"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@android:drawable/editbox_background"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_corner"
                 android:ems="10"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
                 android:minLines="5"
                 android:padding="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvLostandFoundManageLabelDesc"
                 tools:ignore="SpeakableTextPresentCheck" />
 
-            <EditText
+<!--            <Spinner-->
+<!--                android:id="@+id/etLostandFoundManageStatus"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:entries="@array/status"-->
+<!--                android:minHeight="48dp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.0"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/tvLostandFoundManageLabelStatus" />-->
+
+            <Spinner
                 android:id="@+id/etLostandFoundManageStatus"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:drawable/editbox_background"
-                android:ems="10"
-                android:inputType="text"
-                android:padding="12dp"
+                android:entries="@array/status"
+                android:minHeight="48dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvLostandFoundManageLabelStatus"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                app:layout_constraintTop_toBottomOf="@+id/tvLostandFoundManageLabelStatus" />
+
 
             <Button
                 android:id="@+id/btnLostandFoundManageSave"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="32dp"
+                android:backgroundTint="@color/redish"
                 android:text="Simpan"
                 android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etLostandFoundManageStatus" />
+                app:layout_constraintTop_toBottomOf="@+id/buttonLostandFound"
+                app:layout_constraintVertical_bias="0.0" />
 
             <ProgressBar
                 android:id="@+id/pbLostandFoundManage"
@@ -130,6 +152,41 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/btnLostandFoundManageSave"
                 app:layout_constraintTop_toTopOf="@+id/btnLostandFoundManageSave" />
+
+            <ImageView
+                android:id="@+id/ivImageSelected"
+                android:layout_width="136dp"
+                android:layout_height="128dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLostandFoundManageLabelImg"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+            <Button
+                android:id="@+id/buttonLostandFound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/redish"
+                android:text="Select Image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivImageSelected" />
+
+            <TextView
+                android:id="@+id/tvLostandFoundManageLabelImg"
+                style="@style/TextBold.H6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:text="Detail Image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLostandFoundManageLabelStatus" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

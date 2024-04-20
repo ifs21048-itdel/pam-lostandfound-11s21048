@@ -31,18 +31,18 @@ class LostandFoundViewModel(
     }
 
     fun putLostandFound(
-        todoId: Int,
+        lostandfoundId: Int,
         title: String,
         description: String,
         status: String,
-        is_completed: Boolean,
+        isCompleted: Boolean,
     ): LiveData<MyResult<DelcomResponse>> {
         return lostandFoundRepository.putLostandFound(
-            todoId,
+            lostandfoundId,
             title,
             description,
             status,
-            is_completed,
+            isCompleted,
         ).asLiveData()
     }
 
