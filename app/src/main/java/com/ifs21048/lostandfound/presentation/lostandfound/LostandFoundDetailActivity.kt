@@ -1,6 +1,5 @@
 package com.ifs21048.lostandfound.presentation.lostandfound
 
-
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
