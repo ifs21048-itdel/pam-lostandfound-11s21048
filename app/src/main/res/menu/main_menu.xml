@@ -9,8 +9,8 @@
             android:title="Profile"
             app:showAsAction="never" />
         <item
-            android:id="@+id/mainMenuLogout"
-            android:title="Logout"
+            android:id="@+id/mainMenuFavoriteLostandFounds"
+            android:title="Save Lost and Founds"
             app:showAsAction="never" />
         <item
             android:id="@+id/mainMenuAllData"
@@ -19,6 +19,10 @@
         <item
             android:id="@+id/mainMenuMyData"
             android:title="My Data"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/mainMenuLogout"
+            android:title="Logout"
             app:showAsAction="never" />
     </group>
 

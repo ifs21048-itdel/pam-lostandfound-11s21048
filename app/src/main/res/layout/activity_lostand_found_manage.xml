@@ -17,10 +17,10 @@
             android:id="@+id/appbarTodoManage"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#0188A4"
+            android:background="@color/redish"
             app:navigationIcon="@drawable/ic_arrow_back_24"
             app:navigationIconTint="@color/white"
-            app:title="Tambah Todo"
+            app:title="Tambah Lost and Found"
             app:titleTextColor="@color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>
