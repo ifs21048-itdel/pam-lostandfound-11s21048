@@ -78,4 +78,10 @@ interface IApiService {
         @Path("id") lostandfoundId: Int,
         @Part cover: MultipartBody.Part,
     ): DelcomResponse
+
+    @Multipart
+    @POST("users/photo")
+    suspend fun addPhotoProfile(
+        @Part photo :MultipartBody.Part,
+    ):DelcomResponse
 }

@@ -22,6 +22,7 @@ class Utils {
             }
             observeForever(observerWrapper)
         }
+
         fun entitiesToResponses(entities: List<DelcomLostandFoundEntity>): List<LostFoundsItemResponse> {
             return entities.map {
                 LostFoundsItemResponse(

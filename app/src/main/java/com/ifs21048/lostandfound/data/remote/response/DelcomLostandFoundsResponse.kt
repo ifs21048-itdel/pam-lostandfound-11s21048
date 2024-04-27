@@ -59,5 +59,5 @@ data class AuthorLostandFoundsResponse(
 	val name: String,
 
 	@field:SerializedName("photo")
-	val photo: Any
+	val photo: String?,
 )
