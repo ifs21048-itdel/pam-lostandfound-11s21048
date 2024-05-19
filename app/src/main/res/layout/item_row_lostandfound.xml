@@ -11,6 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/ivLostFoundItem"
+            android:layout_width="62dp"
+            android:layout_height="71dp"
+            android:layout_marginStart="8dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.521"
+            app:srcCompat="@drawable/things"
+            tools:src="@tools:sample/avatars" />
+
         <CheckBox
             android:id="@+id/cbItemLostandFoundIsFinished"
             android:layout_width="wrap_content"
@@ -26,32 +39,32 @@
         <TextView
             android:id="@+id/tvItemLostandFoundTitle"
             style="@style/TextBold.H6"
-            android:layout_width="339dp"
+            android:layout_width="271dp"
             android:layout_height="27dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="268dp"
+            android:layout_marginStart="8dp"
             android:text="Judul Barang"
+
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/ivItemLostandFoundDetail"
+            app:layout_constraintBottom_toTopOf="@+id/tvItemLostandFoundDesc"
+            app:layout_constraintEnd_toEndOf="@+id/ivItemLostandFoundDetail"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivLostFoundItem"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.238" />
+            app:layout_constraintVertical_bias="0.176" />
 
         <TextView
             android:id="@+id/tvItemLostandFoundDesc"
             style="@style/Text.P7"
-            android:layout_width="352dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="44dp"
+            android:layout_width="271dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="25dp"
             android:layout_marginEnd="240dp"
             android:text="Deskripsi barang"
             android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/ivItemLostandFoundDetail"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivLostFoundItem"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
